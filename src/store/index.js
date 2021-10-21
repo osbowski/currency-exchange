@@ -9,7 +9,20 @@ export default createStore({
     }
   },
   mutations: {
+    addCurrencyValue(state,payload){
+      const { currencies } = state;
+      const { currency, value } = payload;
+      currencies[ currency ] = value;
+    }
   },
   actions: {
+    addCurrencyValue(context,payload){
+      context.commit('addCurrencyValue',payload)
+    }
   },
+  getters:{
+    getCurrencies(state){
+      return state.currencies
+    }
+  }
 })
