@@ -1,10 +1,10 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router';
+import AddCurrency from '../views/AddCurrency.vue';
 
 const routes = [
   {
-    // path: '/',
-    // name: 'Home',
-    // component: Home
+    path: '/add',
+    component:AddCurrency
   },
 ]
 
