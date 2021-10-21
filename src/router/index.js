@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import AddCurrency from '../views/AddCurrency.vue';
 import CurrenciesTablePage from '../views/CurrenciesTablePage.vue'
+import ConvertCurrency from '../views/ConvertCurrency.vue'
 
 const routes = [
   {
@@ -10,6 +11,10 @@ const routes = [
   {
     path:'/currencies',
     component:CurrenciesTablePage
+  },
+  {
+    path:'/converter',
+    component:ConvertCurrency
   }
 ]
 
