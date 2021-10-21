@@ -15,10 +15,19 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { useStore } from "vuex";
 export default {
   setup() {
-    const currencies = ref(["USD", "GBP", "EURO"]);
+    const store = useStore();
+    const currencies = computed(()=>{
+        const currenciesToMap = store.getters.getCurrencies;
+        const currenciesArr = [];
+        for (let key in currenciesToMap){
+            currenciesArr.push(key)
+        }
+        return currenciesArr;
+    })
     const selectedCurrency = ref(null);
     const currencyValue = ref(null);
     const isNotValid = ref(false);
@@ -29,7 +38,7 @@ export default {
       if (selectedCurrency.value === null || currencyValue.value === null) {
         isNotValid.value = true;
       } else {
-        console.log({
+        store.dispatch("addCurrencyValue", {
           currency: selectedCurrency.value,
           value: currencyValue.value.toFixed(2),
         });
