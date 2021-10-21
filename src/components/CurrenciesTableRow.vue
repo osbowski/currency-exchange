@@ -1,15 +1,17 @@
 <template>
-    <tr>
-        <td></td>
-        <td></td>
-    </tr>
+  <tr>
+    <td>{{ currencyName }}</td>
+    <td>{{ currencyValue ? currencyValue : "Exchange rate not added" }}</td>
+  </tr>
 </template>
 
 <script>
 export default {
-    props:["currency", "value"],
-    setup() {
-        
-    },
-}
+  props: ["currencyName", "currencyValue"],
+//   setup(props) {
+//     return {
+//       logCurrency,
+//     };
+//   },
+};
 </script>
