@@ -1,16 +1,22 @@
 <template>
-    <h2>Actual exchange rates</h2>
-    <CurrenciesTable />
+  <div class="flex md6 lg4">
+    <va-card>
+      <va-card-title class="justify--center display-5"
+        >Actual exchange rates</va-card-title
+      >
+      <va-card-content>
+        <CurrenciesTable />
+      </va-card-content>
+    </va-card>
+  </div>
 </template>
 
 <script>
-import CurrenciesTable from '../components/CurrenciesTable.vue';
+import CurrenciesTable from "../components/CurrenciesTable.vue";
 export default {
-    components:{
-        CurrenciesTable
-    },
-    setup() {
-        
-    },
-}
+  components: {
+    CurrenciesTable,
+  },
+  setup() {},
+};
 </script>
