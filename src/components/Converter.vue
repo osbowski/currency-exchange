@@ -1,20 +1,25 @@
 <template>
-  <form @submit.prevent="convert" v-if="hasCurrencies">
-    <input
-      type="text"
+  <va-form v-if="hasCurrencies">
+    <div class="form-control">
+    <va-input
+      type="number"
       placeholder="Value to convert"
+      outline
       v-model="valueToConvert"
     />
-    <select v-model="activeCurrency">
+    <select class="select-input" v-model="activeCurrency">
       <option v-for="(value, name) in currencies" :value="name" :key="name">{{
         name
       }}</option>
     </select>
-    <button>Convert</button>
-    <p>In PLN: {{ convertResult }}</p>
-  </form>
-  <p v-else>Add some values to currencies first</p>
-  <p v-if="isNotValid">Select currency and/or add value to convert.</p>
+    </div>
+    <div class="action-wrapper action-wrapper--converter">
+      <p class="display-6">In PLN: {{ convertResult }}</p>
+    <va-button @click.prevent="convert" >Convert</va-button>
+    </div>
+  </va-form>
+  <p class="text-alert text-center" v-else>Add some values to currencies first</p>
+  <p v-if="isNotValid" class="text-alert text-center mt-4">Select currency and/or add value to convert.</p>
 </template>
 
 <script>
@@ -56,3 +61,11 @@ export default {
   },
 };
 </script>
+
+
+<style scoped>
+.action-wrapper--converter{
+  justify-content: space-between;
+  align-items: center;
+}
+</style>

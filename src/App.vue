@@ -27,4 +27,19 @@ a {
 .text-alert{
   color: red;
 }
+
+.select-input{
+  border:1px solid #f5f9fb;
+  margin-right:20px;
+}
+
+.form-control{
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.action-wrapper{
+  display: flex;
+  justify-content: flex-end;
+}
 </style>
