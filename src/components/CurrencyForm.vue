@@ -58,7 +58,7 @@ export default {
         formConfirmation.value=true;
         store.dispatch("addCurrencyValue", {
           currency: selectedCurrency.value,
-          value: parseInt(currencyValue.value).toFixed(2),
+          value: parseFloat(currencyValue.value).toFixed(2)
         });
         selectedCurrency.value = null;
         currencyValue.value = null;
