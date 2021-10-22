@@ -1,21 +1,26 @@
 <template>
   <TheHeader />
-  <router-view />
+  <div class="wrapper">
+    <router-view />
+  </div>
 </template>
 
 <script>
-import TheHeader from './components/Layout/TheHeader.vue'
+import TheHeader from "./components/Layout/TheHeader.vue";
 export default {
-  components:{
-    TheHeader
+  components: {
+    TheHeader,
   },
-  setup() {
-
-  },
-}
+  setup() {},
+};
 </script>
 <style>
-a{
+a {
   color: #fff;
+}
+
+.wrapper{
+  display: flex;
+  justify-content: center;
 }
 </style>
