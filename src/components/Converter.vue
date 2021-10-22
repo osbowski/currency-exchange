@@ -7,7 +7,7 @@
       outline
       v-model="valueToConvert"
     />
-    <select class="select-input" v-model="activeCurrency">
+    <select class="select-input select-input--reverse" v-model="activeCurrency">
       <option v-for="(value, name) in currencies" :value="name" :key="name">{{
         name
       }}</option>
@@ -67,5 +67,10 @@ export default {
 .action-wrapper--converter{
   justify-content: space-between;
   align-items: center;
+}
+
+.select-input--reverse{
+  margin-right: 0px;
+  margin-left: 20px;
 }
 </style>

@@ -28,6 +28,10 @@ a {
   color: red;
 }
 
+.text-confirmation{
+  color:green;
+}
+
 .select-input{
   border:1px solid #f5f9fb;
   margin-right:20px;

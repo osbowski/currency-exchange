@@ -27,6 +27,7 @@
     </div>
   </va-form>
   <p v-if="isNotValid" class="text-alert text-center mt-4">Please select currency and/or add some value.</p>
+  <p v-if="formConfirmation" class="text-confirmation text-center mt-4">Currency saved</p>
 </template>
 
 <script>
@@ -46,6 +47,7 @@ export default {
     const selectedCurrency = ref(null);
     const currencyValue = ref(null);
     const isNotValid = ref(false);
+    const formConfirmation = ref(false);
 
     const saveCurrency = () => {
       isNotValid.value = false;
@@ -53,10 +55,16 @@ export default {
       if (selectedCurrency.value === null || currencyValue.value === null) {
         isNotValid.value = true;
       } else {
+        formConfirmation.value=true;
         store.dispatch("addCurrencyValue", {
           currency: selectedCurrency.value,
           value: parseInt(currencyValue.value).toFixed(2),
         });
+        selectedCurrency.value = null;
+        currencyValue.value = null;
+        setTimeout(()=>{
+          formConfirmation.value = false;
+        },3000)
       }
     };
 
@@ -66,6 +74,7 @@ export default {
       selectedCurrency,
       isNotValid,
       saveCurrency,
+      formConfirmation
     };
   },
 };
