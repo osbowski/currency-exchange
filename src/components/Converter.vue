@@ -13,8 +13,7 @@
     <button>Convert</button>
     <p>In PLN: {{ convertResult }}</p>
   </form>
-  <p v-else>Add some values to currency first</p>
-  <button @click="logCurrencies">click</button>
+  <p v-else>Add some values to currencies first</p>
   
 </template>
 
@@ -36,18 +35,13 @@ export default {
       ).toFixed(2);
     };
 
-    const logCurrencies = ()=>{
-      console.log(hasCurrencies.value)
-    }
-
     return {
       currencies,
       activeCurrency,
       valueToConvert,
       convertResult,
       hasCurrencies,
-      convert,
-      logCurrencies
+      convert
     };
   },
 };

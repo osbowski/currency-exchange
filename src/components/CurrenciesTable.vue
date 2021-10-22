@@ -1,5 +1,5 @@
 <template>
-  <table>
+  <table v-if="hasCurrencies">
     <thead>
       <tr>
         <th>Currency</th>
@@ -15,6 +15,7 @@
       />
     </tbody>
   </table>
+  <p v-else>Add some values to currencies first</p>
 </template>
 
 <script>
@@ -27,10 +28,12 @@ export default {
   },
   setup() {
     const store = useStore();
-    const currencies = computed(() => store.getters.getCurrencies);
+    const currencies = computed(() => store.getters.getCurrenciesWithValue);
+    const hasCurrencies = computed(()=>Object.keys(currencies.value).length > 0)
 
     return {
       currencies,
+      hasCurrencies
     };
   },
 };
