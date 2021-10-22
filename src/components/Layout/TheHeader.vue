@@ -1,5 +1,5 @@
 <template>
-  <va-navbar color="primary" class="mb-2">
+  <va-navbar color="primary" class="mb-5">
     <template #left>
       <va-navbar-item>Currencies Converter</va-navbar-item>
     </template>
