@@ -14,7 +14,7 @@
     <p>In PLN: {{ convertResult }}</p>
   </form>
   <p v-else>Add some values to currencies first</p>
-  
+  <p v-if="isNotValid">Select currency and/or add value to convert.</p>
 </template>
 
 <script>
@@ -27,12 +27,21 @@ export default {
     const activeCurrency = ref(null);
     const valueToConvert = ref(null);
     const convertResult = ref(0);
-    const hasCurrencies = computed(()=>Object.keys(currencies.value).length > 0)
+    const isNotValid = ref(false);
+    const hasCurrencies = computed(
+      () => Object.keys(currencies.value).length > 0
+    );
 
     const convert = () => {
-      convertResult.value = (
-        valueToConvert.value * currencies.value[activeCurrency.value]
-      ).toFixed(2);
+      isNotValid.value = false;
+      if (valueToConvert.value === null || activeCurrency.value === null) {
+        isNotValid.value = true;
+      } else {
+        isNotValid.value = false;
+        convertResult.value = (
+          valueToConvert.value * currencies.value[activeCurrency.value]
+        ).toFixed(2);
+      }
     };
 
     return {
@@ -41,7 +50,8 @@ export default {
       valueToConvert,
       convertResult,
       hasCurrencies,
-      convert
+      isNotValid,
+      convert,
     };
   },
 };

@@ -5,6 +5,10 @@ import ConvertCurrency from '../views/ConvertCurrency.vue'
 
 const routes = [
   {
+    path:'/',
+    redirect:'/currencies'
+  },
+  {
     path: '/add',
     component:AddCurrency
   },
