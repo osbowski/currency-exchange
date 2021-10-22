@@ -15,7 +15,9 @@
       />
     </tbody>
   </table>
-  <p v-else class="text-center text-alert">Add some values to currencies first</p>
+  <p v-else class="text-center text-alert">
+    Add some values to currencies first
+  </p>
 </template>
 
 <script>
@@ -29,18 +31,20 @@ export default {
   setup() {
     const store = useStore();
     const currencies = computed(() => store.getters.getCurrenciesWithValue);
-    const hasCurrencies = computed(()=>Object.keys(currencies.value).length > 0)
+    const hasCurrencies = computed(
+      () => Object.keys(currencies.value).length > 0
+    );
 
     return {
       currencies,
-      hasCurrencies
+      hasCurrencies,
     };
   },
 };
 </script>
 
 <style scoped>
-.va-table{
+.va-table {
   width: 100%;
 }
 </style>

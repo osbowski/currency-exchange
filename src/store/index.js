@@ -29,7 +29,7 @@ export default createStore({
       for (let key in state.currencies) {
         if (state.currencies[key] !== null) {
           currenciesWithValue[key] = state.currencies[key];
-        } 
+        }
       }
       return currenciesWithValue;
     },

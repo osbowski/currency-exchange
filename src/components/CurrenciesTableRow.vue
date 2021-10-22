@@ -8,10 +8,5 @@
 <script>
 export default {
   props: ["currencyName", "currencyValue"],
-//   setup(props) {
-//     return {
-//       logCurrency,
-//     };
-//   },
 };
 </script>

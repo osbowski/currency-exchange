@@ -26,8 +26,12 @@
       <va-button @click.prevent="saveCurrency">Save Currency</va-button>
     </div>
   </va-form>
-  <p v-if="isNotValid" class="text-alert text-center mt-4">Please select currency and/or add some value.</p>
-  <p v-if="formConfirmation" class="text-confirmation text-center mt-4">Currency saved</p>
+  <p v-if="isNotValid" class="text-alert text-center mt-4">
+    Please select currency and/or add some value.
+  </p>
+  <p v-if="formConfirmation" class="text-confirmation text-center mt-4">
+    Currency saved
+  </p>
 </template>
 
 <script>
@@ -55,16 +59,16 @@ export default {
       if (selectedCurrency.value === null || currencyValue.value === null) {
         isNotValid.value = true;
       } else {
-        formConfirmation.value=true;
+        formConfirmation.value = true;
         store.dispatch("addCurrencyValue", {
           currency: selectedCurrency.value,
-          value: parseFloat(currencyValue.value).toFixed(2)
+          value: parseFloat(currencyValue.value).toFixed(2),
         });
         selectedCurrency.value = null;
         currencyValue.value = null;
-        setTimeout(()=>{
+        setTimeout(() => {
           formConfirmation.value = false;
-        },3000)
+        }, 3000);
       }
     };
 
@@ -74,7 +78,7 @@ export default {
       selectedCurrency,
       isNotValid,
       saveCurrency,
-      formConfirmation
+      formConfirmation,
     };
   },
 };

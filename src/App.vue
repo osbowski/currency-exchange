@@ -19,30 +19,30 @@ a {
   color: #fff;
 }
 
-.wrapper{
+.wrapper {
   display: flex;
   justify-content: center;
 }
 
-.text-alert{
+.text-alert {
   color: red;
 }
 
-.text-confirmation{
-  color:green;
+.text-confirmation {
+  color: green;
 }
 
-.select-input{
-  border:1px solid #f5f9fb;
-  margin-right:20px;
+.select-input {
+  border: 1px solid #f5f9fb;
+  margin-right: 20px;
 }
 
-.form-control{
+.form-control {
   display: flex;
   margin-bottom: 40px;
 }
 
-.action-wrapper{
+.action-wrapper {
   display: flex;
   justify-content: flex-end;
 }
