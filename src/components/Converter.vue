@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="convert">
+  <form @submit.prevent="convert" v-if="hasCurrencies">
     <input
       type="text"
       placeholder="Value to convert"
@@ -11,8 +11,11 @@
       }}</option>
     </select>
     <button>Convert</button>
+    <p>In PLN: {{ convertResult }}</p>
   </form>
-  <p>In PLN: {{ convertResult }}</p>
+  <p v-else>Add some values to currency first</p>
+  <button @click="logCurrencies">click</button>
+  
 </template>
 
 <script>
@@ -21,10 +24,11 @@ import { computed, ref } from "vue";
 export default {
   setup() {
     const store = useStore();
-    const currencies = computed(() => store.getters.getCurrencies);
+    const currencies = computed(() => store.getters.getCurrenciesWithValue);
     const activeCurrency = ref(null);
     const valueToConvert = ref(null);
     const convertResult = ref(0);
+    const hasCurrencies = computed(()=>Object.keys(currencies.value).length > 0)
 
     const convert = () => {
       convertResult.value = (
@@ -32,12 +36,18 @@ export default {
       ).toFixed(2);
     };
 
+    const logCurrencies = ()=>{
+      console.log(hasCurrencies.value)
+    }
+
     return {
       currencies,
       activeCurrency,
       valueToConvert,
       convertResult,
+      hasCurrencies,
       convert,
+      logCurrencies
     };
   },
 };
