@@ -1,6 +1,12 @@
 <template>
-    <h2>Convert currency to PLN</h2>
-    <Converter />
+    <va-card>
+      <va-card-title class="justify--center display-5"
+        >Convert currency to PLN</va-card-title
+      >
+      <va-card-content>
+        <Converter />
+      </va-card-content>
+    </va-card>
 </template>
 
 <script>

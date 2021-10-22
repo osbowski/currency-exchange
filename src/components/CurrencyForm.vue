@@ -1,28 +1,26 @@
 <template>
   <va-form>
     <div class="form-control">
-      <select
-        name="currencies"
-        id="currencies"
-        v-model="selectedCurrency"
-        class="select-input"
+    <select name="currencies" id="currencies" v-model="selectedCurrency" class="select-input">
+      <option
+        v-for="currency in currencies"
+        :key="currency"
+        :value="currency"
+        >{{ currency }}</option
       >
-        <option
-          v-for="currency in currencies"
-          :key="currency"
-          :value="currency"
-          >{{ currency }}</option
-        >
-      </select>
-      <va-input
-        type="number"
-        step="0.01"
-        v-model="currencyValue"
-        placeholder="Exchange rate"
-        outline
-      />
-    </div>
-    <va-button @click.prevent="saveCurrency">Save Currency</va-button>
+    </select>
+    <va-input
+      type="number"
+      step="0.01"
+      v-model="currencyValue"
+      placeholder="Exchange rate"
+      outline
+    />
+        </div>
+        <div class="action-wrapper">
+<va-button @click.prevent="saveCurrency">Save Currency</va-button>
+        </div>
+    
   </va-form>
   <p v-if="isNotValid">Please select currency and/or add some value.</p>
 </template>
@@ -69,13 +67,18 @@ export default {
 };
 </script>
 <style scoped>
-.select-input {
-  border: 1px solid #f5f9fb;
-  margin-right: 20px;
+.select-input{
+  border:1px solid #f5f9fb;
+  margin-right:20px;
 }
 
-.form-control {
+.form-control{
   display: flex;
   margin-bottom: 40px;
+}
+
+.action-wrapper{
+  display: flex;
+  justify-content: flex-end;
 }
 </style>
