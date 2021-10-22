@@ -14,4 +14,8 @@ export default {
   },
 }
 </script>
-<style></style>
+<style>
+a{
+  color: #fff;
+}
+</style>
