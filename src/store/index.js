@@ -24,5 +24,16 @@ export default createStore({
     getCurrencies(state) {
       return state.currencies;
     },
+    getCurrenciesWithValue(state) {
+      const currenciesWithValue = {};
+      for (let key in state.currencies) {
+        if (state.currencies[key] === null) {
+          return;
+        } else {
+          currenciesWithValue[key] = state.currencies[key];
+        }
+      }
+      return currenciesWithValue;
+    },
   },
 });
