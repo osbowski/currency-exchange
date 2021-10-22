@@ -1,5 +1,5 @@
 <template>
-  <table v-if="hasCurrencies">
+  <table class="va-table" v-if="hasCurrencies">
     <thead>
       <tr>
         <th>Currency</th>
@@ -15,7 +15,7 @@
       />
     </tbody>
   </table>
-  <p v-else>Add some values to currencies first</p>
+  <p v-else class="text-center text-alert">Add some values to currencies first</p>
 </template>
 
 <script>
@@ -38,3 +38,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.va-table{
+  width: 100%;
+}
+</style>

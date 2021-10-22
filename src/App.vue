@@ -23,4 +23,8 @@ a {
   display: flex;
   justify-content: center;
 }
+
+.text-alert{
+  color: red;
+}
 </style>
